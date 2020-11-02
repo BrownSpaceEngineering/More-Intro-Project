@@ -2,6 +2,10 @@
 
 translation lookup[TABLE_SIZE];
 
+translation* get_table(){
+    return lookup;
+}
+
 void create_table(){
 	lookup[0].decoded = "A";
 	lookup[0].encoded = ".-";

@@ -8,6 +8,8 @@ typedef struct {
 	char* decoded;
 } translation;
 
+translation* get_table();
+
 void create_table();
 
 char* getEncoded(char* dec);
