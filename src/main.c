@@ -1,6 +1,6 @@
 // #include <atmel_start.h>
 #include <stdio.h>
-#include "lookup.h"
+#include "dictionary.h"
 
 
 
@@ -12,14 +12,30 @@ int main(void)
 	//Initialize lookup table
 	create_table();
 
-	translation* t = get_table();
-	
-	//Test statements
-	for (int i = 0; i < TABLE_SIZE; i ++){
-		printf("Encoded value of %s: %s\n\n", t[i].decoded, getEncoded(t[i].decoded));
-		printf("Decoded value of %s: %s\n", t[i].encoded, getDecoded(t[i].encoded));
-		printf("----------------------------\n");
+	char* decT = getDecTable(); 
+
+	printf("Encoded value of A: %s\n", getEncoded('A'));
+	printf("Encoded value of B: %s\n", getEncoded('B'));
+
+	int j = 0;
+	for (int i = 0; i < TABLE_SIZE; i++){
+		if(decT[i] != 0){
+			printf("Decoded: %c\n", decT[i]);
+			j++;
+		}
 	}
+	printf("Total count: %d\n", j);
+
+	// printf("5: %u\n", hashEnc("....."));
+
+	//Test statements
+	// for (int i = 0; i < TABLE_SIZE; i ++){
+	// 	printf("Encoded value of %s: %s\n\n", t[i].decoded, getEncoded(t[i].decoded));
+	// 	printf("Decoded value of %s: %s\n", t[i].encoded, getDecoded(t[i].encoded));
+	// 	printf("----------------------------\n");
+	// }
+
+	
 
 
 	/* Replace the code below with your application code */
