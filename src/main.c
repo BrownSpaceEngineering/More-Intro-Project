@@ -13,7 +13,7 @@ int main(void)
 	//Initialize lookup table
 	// create_table();
 
-	void USART_0_example();
+	USART_0_example();
 
 	// char* decT = getDecTable(); 
 
