@@ -25,6 +25,7 @@ samd21a/gcc \
 hpl/pm \
 hpl/sysctrl \
 hal/utils/src \
+hpl/sercom \
 examples \
 hpl/gclk \
 samd21a/gcc/gcc \
@@ -42,17 +43,19 @@ ATMEL_INCLUDE_DIRS := \
 config \
 examples \
 hal/include \
-hal/utils/include  \
-hpl/core  \
-hpl/dmac  \
-hpl/gclk  \
-hpl/pm  \
-hpl/port  \
-hpl/sysctrl  \
-hpl/systick  \
-hri  \
-CMSIS/Include  \
-samd21a/include  \
+hal/utils/include \
+hpl/core \
+hpl/dmac \
+hpl/gclk \
+hpl/pm \
+hpl/port \
+hpl/sercom \
+hpl/sysctrl \
+hpl/systick \
+hri \
+ \
+CMSIS/Core/Include \
+samd21a/include
 
 # Top-level directories make should look for things in
 vpath %.c src/ $(ASF_DIR)/

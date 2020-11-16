@@ -21,7 +21,15 @@ extern "C" {
 #include <hal_io.h>
 #include <hal_sleep.h>
 
+#include <hal_usart_sync.h>
+
 #include <hal_delay.h>
+
+extern struct usart_sync_descriptor USART_0;
+
+void USART_0_PORT_init(void);
+void USART_0_CLOCK_init(void);
+void USART_0_init(void);
 
 void delay_driver_init(void);
 
