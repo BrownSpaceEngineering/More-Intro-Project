@@ -42,6 +42,7 @@ ATMEL_INCLUDE_DIRS := \
 ./ \
 config \
 examples \
+asf-samd21 \
 hal/include \
 hal/utils/include \
 hpl/core \
