@@ -4,6 +4,7 @@
 #include "driver_examples.h"
 #include "serial_print.h"
 #include "string.h"
+#include "serial_read.h"
 
 
 int main(void)
@@ -51,19 +52,30 @@ int main(void)
 	int j = 0;
 	for (int i = 0; i < TABLE_SIZE; i++){
 		if(decT[i] != 0){
-			s_print("Decoded:");
-			s_print("\r\n");
+			s_print("Decoded: ");
 			s_print(decT[i]);
 			s_print("\r\n");
+			s_print("Encoded: ");
+			s_print(getEncoded(*decT[i]));
+			s_print("\r\n\r\n");
 			j++;
 		}
 	}
 	s_print("Total count:");
-	// s_print(j);
+	char int_buf[100];
+	s_print(itoa(j, int_buf, 10));
 	s_print("\r\n");
 
 
 	// printf("5: %u\n", hashEnc("....."));
+	s_print("5: ");
+	memset(int_buf, '0', 100);
+	s_print(itoa(hashEnc("....."),int_buf, 10));
+	s_print("\r\n");
+	// s_print(decT[204]);
+
+
+
 
 	// Test statements
 	// for (int i = 0; i < TABLE_SIZE; i ++){
@@ -71,14 +83,22 @@ int main(void)
 	// 	printf("Decoded value of %s: %s\n", t[i].encoded, getDecoded(t[i].encoded));
 	// 	printf("----------------------------\n");
 	// }
-
 	
 
 
 	/* Replace the code below with your application code */
 
+
+	s_read_init();
 	while(1){
-		
+		char r[2];
+		r[0] = s_read();
+		r[1] = '\0';
+
+		s_print("\r\n");
+		s_print("Successfully read: ");
+		s_print(r);
+
 	}
 
 
