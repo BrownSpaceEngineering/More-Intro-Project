@@ -1,14 +1,22 @@
 #include "dictionary.h"
 
+/**
+ * Dictionary lookup table to translate between alphanumeric characters and their morse code representations
+ * 
+ * Note: This is super inefficient space wise, mostly done as a proof of concept of very simple hash map in C
+ * A simple 2d array with no hash function would work perfectly fine with such a small set of items
+ * 
+ * **/
+
+
+// Store encoded (morse-equivalent) alphanumeric strings
 char *lookup_enc[TABLE_SIZE];
 
+// Store decoded alphanumeric character (treated as strings) (plain text)
 char *lookup_dec[TABLE_SIZE];
 
-// translation* get_table(){
-//     return lookup;
-// }
-
-unsigned hashEnc(char* s){
+// Hash function to get index of plain character in table using encoded character
+unsigned hashEnc(char* s) {
     unsigned hashval;
     for (hashval = 0; *s != 0; s++) {
         hashval = *s + 31 * hashval;
@@ -16,15 +24,18 @@ unsigned hashEnc(char* s){
     return hashval % TABLE_SIZE;
 }
 
-unsigned hashDec(char s){
+// Hash function to get index of encoded character in table using plain character 
+unsigned hashDec(char s) {
     return (((unsigned) s) - 48) % TABLE_SIZE;
 }
 
-char** getDecTable(){
+// Return pointer to table
+char** getDecTable() {
     return lookup_dec;
 }
 
-void create_table(){
+// initialize encoded and decoded tables
+void create_table() {
 	lookup_enc[hashDec('A')] = ".-";
     lookup_dec[hashEnc(".-")] = "A";
 
@@ -134,6 +145,7 @@ void create_table(){
     lookup_dec[hashEnc("-----")] = "0"; 
 }
 
+// Get encoded value of alphanumeric character provided in argument
 char* getEncoded(char dec){
 	if (lookup_enc[hashDec(dec)] != NULL){
         return lookup_enc[hashDec(dec)];
@@ -141,6 +153,7 @@ char* getEncoded(char dec){
 	return "Not Found";
 }
 
+// Get decoded value of morse encoded string in argument
 char* getDecoded(char* enc){
     if(lookup_dec[hashEnc(enc)] != 0){
         return lookup_dec[hashEnc(enc)];
