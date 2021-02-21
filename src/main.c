@@ -5,6 +5,7 @@
 #include "serial_print.h"
 #include "string.h"
 #include "serial_read.h"
+#include "flashMorse.h"
 
 
 int main(void)
@@ -71,10 +72,11 @@ int main(void)
 		s_print("Encoded value of ");
 		s_print(r);
 		s_print(": ");
-		s_print(getEncoded(r[0]));
+		char *enc = getEncoded(r[0]);
+		s_print(enc);
 		s_print("\r\n");
 		// Flash lights
-
+		flashMorse(enc);
 
 
 	}
