@@ -19,7 +19,8 @@ int main(void)
 	create_table();
 
 	// Initialize serial print
-	s_print_init();
+	// s_print_init();
+	s_read_init();
 
 	//get local reference to decoded table
 	char** decT = getDecTable(); 
@@ -57,7 +58,7 @@ int main(void)
 
 
 	// initialize serial read
-	s_read_init();
+	// s_read_init();
 
 
 	while(1){

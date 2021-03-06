@@ -1,11 +1,11 @@
 #include "serial_print.h"
 
-struct io_descriptor *io;
+// struct io_descriptor *io;
 
-void s_print_init(){
-	usart_sync_get_io_descriptor(&USART_0, &io);
-	usart_sync_enable(&USART_0);
-}
+// void s_print_init(){
+// 	usart_sync_get_io_descriptor(&USART_0, &io);
+// 	usart_sync_enable(&USART_0);
+// }
 
 void s_print(char* buf)
 {

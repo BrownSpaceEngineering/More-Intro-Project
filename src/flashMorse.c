@@ -3,7 +3,7 @@
 
 void flashMorse(char * enc) {
     REG_PORT_DIR1 |= (1<<30);
-    s_print_init();
+    // s_print_init();
     int i = 0;
     //'Y'  "-.--";
     while(enc[i] != '\0') {
