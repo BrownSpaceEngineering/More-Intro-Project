@@ -18,29 +18,26 @@ void s_print(char *buf)
      * provided by the ASF SAM D21 microchip. By the way, ASF stands for Atmel Software Framework.
      * 'Atmel' should ring some bells - it's the chip!
      *
-     * Ok, so figure out what io_write is by holding down the ALT key and clicking on the function.
-     * You should be able to see all necessary details.
+     * Ok, so figure out what io_write is by hovering over the function name. Alternatively, you can
+     * see the implementation of the function by holding down the ALT key and clicking on the
+     * function name.
      */
 
     // TODO: Call io_write with appropriate arguments. Be very careful about the types expected by
     // the arguments!
 }
 
+// reverses a list of characters inplace. How do we know inplace? Look at the function return type!
 void reverse(char str[], int length)
 {
-    int start = 0;
-    char str_b[length];
-    for (int i = length - 1; i >= 0; i--)
-    {
-        str_b[start] = str[i];
-        start++;
-    }
-
-    for (int i = 0; i < length; i++)
-    {
-        str[i] = str_b[i];
-        start++;
-    }
+    /**
+     * There are two approaches to this. The first is to use some temporary storage (temp) and swap
+     * characters on opposite ends of the list. For this, you'll need to maintain two pointers.
+     *
+     * The alternate approach is to first copy the list, then override the list using the copied list
+     * iterated in reverse order. Again, you need two pointers here, but you don't update them
+     * concurrently as you would in the first approach.
+     */
 }
 
 // converts integer to string
