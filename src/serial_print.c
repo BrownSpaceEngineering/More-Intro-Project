@@ -7,7 +7,23 @@ void s_print(char *buf)
         ;
     unsigned int size = (unsigned int)(s - buf);
 
-    io_write(io, (uint8_t *)buf, size);
+    /**
+     * Look into the io_write function. Well, if this were regular C, you would find out what the
+     * arguments mean and so on by looking at MAN pages online.
+     *
+     * But here, since we're dealing with Embedded C in an embedded system, we can't rely on C's
+     * libraries.
+     *
+     * Nevertheless, the reason we have access to io_write is because it's one of the functions
+     * provided by the ASF SAM D21 microchip. By the way, ASF stands for Atmel Software Framework.
+     * 'Atmel' should ring some bells - it's the chip!
+     *
+     * Ok, so figure out what io_write is by holding down the ALT key and clicking on the function.
+     * You should be able to see all necessary details.
+     */
+
+    // TODO: Call io_write with appropriate arguments. Be very careful about the types expected by
+    // the arguments!
 }
 
 void reverse(char str[], int length)
@@ -27,12 +43,17 @@ void reverse(char str[], int length)
     }
 }
 
+// converts integer to string
+/**
+ * Yes, this is a weird name but that's only because itoa is what C's defualt library calls this
+ * function. Why does C do it? Well... idk.
+ */
 char *itoa(int num, char *str, int base)
 {
     int i = 0;
     bool isNegative = false;
 
-    /* Handle 0 explicitely, otherwise empty string is printed for 0 */
+    /* Handle 0 explicitly, otherwise empty string is printed for 0 */
     if (num == 0)
     {
         str[i++] = '0';
