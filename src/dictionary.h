@@ -3,15 +3,12 @@
 
 #define TABLE_SIZE 719
 
-char** getDecTable();
+char **getDecTable();
 
 void create_table();
 
-char* getEncoded(char dec);
+char *getEncoded(char dec);
 
-char* getDecoded(char* enc);
+char *getDecoded(char *enc);
 
-unsigned hashEnc(char* s);
-
-
-
+unsigned hashEnc(char *s);
